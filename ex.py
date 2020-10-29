@@ -5,6 +5,8 @@ import random as rd
 sinalizadorVermmelho = False #define se o sinalizador será ativado ou não
 numeroMensageirosVermelhos = 5
 numeroMensageirosAzuis = 10
+mensageiroVermelho = True
+mensageiroAzul = False
 tempo = 0 #em segundos
 
 
@@ -25,4 +27,7 @@ def enviarMensageiro (mensageiro, tempo, nMensageiros):
 
 #MAIN CODE
 
-    
+enviarMensageiro(mensageiroVermelho, tempo, numeroMensageirosVermelhos)
+
+if mensageiroVermelho == True:
+    enviarMensageiro(mensageiroAzul, tempo, numeroMensageirosAzuis)
