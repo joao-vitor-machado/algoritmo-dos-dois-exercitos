@@ -27,7 +27,10 @@ def enviarMensageiro (mensageiro, tempo, nMensageiros):
 
 #MAIN CODE
 
-enviarMensageiro(mensageiroVermelho, tempo, numeroMensageirosVermelhos)
+if mensageiroVermelho == False:
+    enviarMensageiro(mensageiroVermelho, tempo, numeroMensageirosVermelhos)
 
-if mensageiroVermelho == True:
+if mensageiroVermelho:
     enviarMensageiro(mensageiroAzul, tempo, numeroMensageirosAzuis)
+
+while mensageiroAzul
