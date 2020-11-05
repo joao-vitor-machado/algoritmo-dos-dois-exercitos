@@ -5,18 +5,30 @@ import random as rd
 sinalizadorVermmelho = False #define se o sinalizador será ativado ou não
 numeroMensageirosVermelhos = 5
 numeroMensageirosAzuis = 10
-mensageiroVermelho = True
+mensageiroVermelho = False
 mensageiroAzul = False
 tempo = 0 #em segundos
+aceitouHorario = False
 
 
 #FUNÇÕES
 
-def enviarMensageiro (mensageiro, tempo, nMensageiros):
+def enviarMensageiroVermelho (mensageiro, tempo, nMensageiros):
     probabilidadeSerPego = rd.randrange(0,101)
 
     if(probabilidadeSerPego <= 45):
-        return False, tempo, nMensageiros - 1 #Define se o mensageiro será morto ou não, o tempo atual e o número de mensageiros disponíveis
+        return False, tempo + 12601, nMensageiros - 1 #Define se o mensageiro será morto ou não, o tempo atual e o número de mensageiros disponíveis
+    else:
+
+        tempo+= rd.randrange(3600, 4201)
+
+        return True, tempo
+
+def enviarMensageiroAzul (mensageiro, tempo, nMensageiros):
+    probabilidadeSerPego = rd.randrange(0,101)
+
+    if(probabilidadeSerPego <= 45):
+        return False, tempo + 4201, nMensageiros - 1 #Define se o mensageiro será morto ou não, o tempo atual e o número de mensageiros disponíveis
     else:
 
         tempo+= rd.randrange(3600, 4201)
@@ -24,13 +36,13 @@ def enviarMensageiro (mensageiro, tempo, nMensageiros):
         return True, tempo
 
 
-
 #MAIN CODE
 
-if mensageiroVermelho == False:
-    enviarMensageiro(mensageiroVermelho, tempo, numeroMensageirosVermelhos)
+while sinalizadorVermmelho == False:
 
-if mensageiroVermelho:
-    enviarMensageiro(mensageiroAzul, tempo, numeroMensageirosAzuis)
+    if mensageiroVermelho == False:
+        enviarMensageiroVermelho(mensageiroVermelho, tempo, numeroMensageirosVermelhos)
 
-while mensageiroAzul
+    if mensageiroVermelho:
+        enviarMensageiroAzul(mensageiroAzul, tempo, numeroMensageirosAzuis)
+
