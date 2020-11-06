@@ -45,4 +45,3 @@ while sinalizadorVermmelho == False:
 
     if mensageiroVermelho:
         enviarMensageiroAzul(mensageiroAzul, tempo, numeroMensageirosAzuis)
-
