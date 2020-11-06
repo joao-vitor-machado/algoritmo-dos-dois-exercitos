@@ -8,7 +8,7 @@ numeroMensageirosAzuis = 10
 mensageiroVermelho = False
 mensageiroAzul = False
 tempo = 0 #em segundos
-aceitouHorario = False
+aceitouHorario = True
 
 
 #FUNÇÕES
@@ -35,13 +35,32 @@ def enviarMensageiroAzul (mensageiro, tempo, nMensageiros):
 
         return True, tempo
 
+def mostrarHorario (tempo):
+    seg  = 0
+    minu = 0
+    hora = 0
+
+
+    minu = int((tempo / 60) % 60)
+    hora = int((tempo / 60) / 60)
+    seg  = int(tempo % 60)
+
+    print(f'{hora} : {minu} : {seg}')
+
 
 #MAIN CODE
+    sinalizadorVermmelho = False #define se o sinalizador será ativado ou não
+    while sinalizadorVermmelho == False:
 
-while sinalizadorVermmelho == False:
+        if mensageiroVermelho == False:
+            enviarMensageiroVermelho(mensageiroVermelho, tempo, numeroMensageirosVermelhos)
 
-    if mensageiroVermelho == False:
-        enviarMensageiroVermelho(mensageiroVermelho, tempo, numeroMensageirosVermelhos)
+        if mensageiroVermelho:
+            possibilidadeImpossibilitar = rd.randrange(0,101)
+            if possibilidadeImpossibilitar <= 1:
+                aceitouHorario = False
 
-    if mensageiroVermelho:
-        enviarMensageiroAzul(mensageiroAzul, tempo, numeroMensageirosAzuis)
+            enviarMensageiroAzul(mensageiroAzul, tempo, numeroMensageirosAzuis)
+
+        if mensageiroAzul == True and aceitouHorario == True:
+            sinalizadorVermmelho = True
